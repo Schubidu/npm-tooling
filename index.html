@@ -56,11 +56,22 @@
                     <section>
                         <h3>Alexander Pinnecke</h3>
                         <p>Frontend-Developer @ etventure.com</p>
+                        <div class="fragment"><p>Skills:</p>
+                        <ul>
+                            <li>Javascript</li>
+                            <li>private meme generator</li>
+                        </ul></div>
                     </section>
 
                     <section>
                         <h3>Stefan Schult</h3>
                         <p>Frontend-Developer @ finanzcheck.de</p>
+                        <div class="fragment"><p>Skills:</p>
+                        <ul>
+                            <li>Javascript</li>
+                            <li>NodeJs</li>
+                            <li>CSS magici</li>
+                        </ul></div>
                     </section>
                 </section>
 
@@ -109,6 +120,8 @@
 
                     </section>
 
+                    <section><pre><code>gulp</code></pre></section>
+
                     <section>
                         <h3>Gulp</h3>
                         <p><img class="logo-tool" src="assets/gulp.png" alt=""></p>
@@ -116,19 +129,24 @@
                         <pre><code class="hljs hljs-js">
 var concat = require('gulp-concat');
 
-gulp.task('scripts', function() {
+gulp.task('concate', function() {
   return gulp.src('./lib/*.js')
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./dist/'));
 });
                         </code></pre>
+                        <pre><code>gulp concate</code></pre>
+
                     </section>
 
                     <section>
                         <h3>npm scripts</h3>
                         <p><img class="logo-tool" src="assets/npm.png" alt=""></p>
 
-                        <pre><code>cat 1.js 2.js > 0.js</code></pre>
+                        <pre><code>"scripts": {
+  "concate": "cat 1.js 2.js > 0.js"
+}</code></pre>
+                        <pre><code>npm run concate</code></pre>
                     </section>
                 </section>
 
@@ -140,16 +158,35 @@ gulp.task('scripts', function() {
                     <section>
                         <h3>Browserify</h3>
                         <p><img class="logo-tool" src="assets/browserify.png" alt=""></p>
+                        <pre><code>// main.js
+require('./1.js');
+require('./2.js');</code></pre>
+                        <pre><code>browserify main.js -o bundle.js</code></pre>
                     </section>
 
                     <section>
                         <h3>Webpack</h3>
                         <p><img class="logo-tool" src="assets/logo-cube.png" alt=""></p>
+                        <pre><code>// webpack.config.js
+module.exports = {
+  entry: './main.js',
+  output: {
+    filename: 'bundle.js'
+  }
+};</code></pre>
+                        <pre><code>webpack</code></pre>
                     </section>
 
                     <section>
                         <h3>Rollup</h3>
                         <p><img class="logo-tool" src="assets/rollup-logo.svg" alt=""></p>
+
+                        <p><a href="http://rollupjs.org/">➜ rollupjs.org</a></p>
+
+                        <aside class="notes">
+                            goto website and explain rollup
+                            - tree shaking
+                        </aside>
                     </section>
                 </section>
 
