@@ -56,10 +56,13 @@
                     <section>
                         <h3>Alexander Pinnecke</h3>
                         <p>Frontend-Developer @ etventure.com</p>
-                        <div class="fragment"><p>Skills:</p>
+
+                        <div class="fragment">
+                            <p>Skills:</p>
                             <ul>
-                                <li>Javascript</li>
-                                <li>private meme generator</li>
+                                <li class="fragment">first class javascript junkie</li>
+                                <li class="fragment">meme generator user</li>
+                                <li class="fragment">microservice desaster master</li>
                             </ul>
                         </div>
                     </section>
@@ -67,11 +70,20 @@
                     <section>
                         <h3>Stefan Schult</h3>
                         <p>Frontend-Developer @ finanzcheck.de</p>
-                        <div class="fragment"><p>Skills:</p>
+                        <div class="fragment">
+                            <p>Skills:</p>
                             <ul>
-                                <li>Javascript</li>
-                                <li>NodeJs</li>
-                                <li>CSS magici</li>
+                                <li class="fragment">
+                                    Javascript
+                                    <span class="fragment">since</span>
+                                    <span class="fragment">
+                                        <span class="fragment strike">ever</span>
+                                    </span>
+                                    <span class="fragment">1970-01-01 00:00:00 +00:00</span>
+                                </li>
+                                <li class="fragment">CSS magician 🔮</li>
+                                <li class="fragment">bleeding edge technology guy</li>
+                                <li class="fragment">finds new tools twice a day</li>
                             </ul>
                         </div>
                     </section>
@@ -101,49 +113,42 @@
                         <p><img class="logo-tool" src="assets/grunt-logo.png" alt=""></p>
 
                         <pre><code>module.exports = function(grunt) {
+    grunt.initConfig({
+        jshint: {
+            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+            options: {
+                globals: {
+                    jQuery: true
+                }
+            }
+        },
+        watch: {
+            files: ['<%= jshint.files %>'],
+            tasks: ['jshint']
+        }
+    });
 
-                            grunt.initConfig({
-                            jshint: {
-                            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
-                            options: {
-                            globals: {
-                            jQuery: true
-                            }
-                            }
-                            },
-                            watch: {
-                            files: ['<%= jshint.files %>'],
-                            tasks: ['jshint']
-                            }
-                            });
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-                            grunt.loadNpmTasks('grunt-contrib-jshint');
-                            grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.registerTask('default', ['jshint']);
 
-                            grunt.registerTask('default', ['jshint']);
+};</code></pre>
 
-                            };</code></pre>
-
-                    </section>
-
-                    <section>
-                        <pre><code>gulp</code></pre>
+                        <pre><code>grunt</code></pre>
                     </section>
 
                     <section>
                         <h3>Gulp</h3>
                         <p><img class="logo-tool" src="assets/gulp.png" alt=""></p>
 
-                        <pre><code class="hljs hljs-js">
-                            var concat = require('gulp-concat');
-
-                            gulp.task('concate', function() {
-                            return gulp.src('./lib/*.js')
-                            .pipe(concat('all.js'))
-                            .pipe(gulp.dest('./dist/'));
-                            });
-                        </code></pre>
-                        <pre><code>gulp concate</code></pre>
+                        <pre><code class="hljs hljs-js">var concat = require('gulp-concat');
+gulp.task('concat', function() {
+  return gulp.src('./lib/*.js')
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('./dist/'));
+});</code></pre>
+                        <pre><code>gulp concat</code></pre>
 
                     </section>
 
@@ -152,9 +157,9 @@
                         <p><img class="logo-tool" src="assets/npm.png" alt=""></p>
 
                         <pre><code>"scripts": {
-                            "concate": "cat 1.js 2.js > 0.js"
-                            }</code></pre>
-                        <pre><code>npm run concate</code></pre>
+  "concat": "cat 1.js 2.js > 0.js"
+}</code></pre>
+                        <pre><code>npm run concat</code></pre>
                     </section>
                 </section>
 
@@ -167,8 +172,8 @@
                         <h3>Browserify</h3>
                         <p><img class="logo-tool" src="assets/browserify.png" alt=""></p>
                         <pre><code>// main.js
-                            require('./1.js');
-                            require('./2.js');</code></pre>
+require('./1.js');
+require('./2.js');</code></pre>
                         <pre><code>browserify main.js -o bundle.js</code></pre>
                     </section>
 
@@ -176,12 +181,12 @@
                         <h3>Webpack</h3>
                         <p><img class="logo-tool" src="assets/logo-cube.png" alt=""></p>
                         <pre><code>// webpack.config.js
-                            module.exports = {
-                            entry: './main.js',
-                            output: {
-                            filename: 'bundle.js'
-                            }
-                            };</code></pre>
+module.exports = {
+    entry: './main.js',
+    output: {
+        filename: 'bundle.js'
+    }
+};</code></pre>
                         <pre><code>webpack</code></pre>
                     </section>
 
@@ -315,7 +320,6 @@
                     {src: 'plugin/notes/notes.js', async: true}
                 ]
             });
-
         </script>
 
     </body>

@@ -118,6 +118,18 @@ html:-moz-full-screen-ancestor {
 	}
 }
 
+.reveal .slides section .fragment.hide {
+	opacity: 1;
+    visibility: visible;
+	display: inline-block;
+
+	&.visible {
+		opacity: 0;
+		display: none;
+        visibility: hidden;
+	}
+}
+
 .reveal .slides section .fragment.semi-fade-out {
 	opacity: 1;
 	visibility: visible;
