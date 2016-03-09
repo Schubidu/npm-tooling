@@ -72,16 +72,53 @@
                     <section>
                         <h3>Grunt</h3>
                         <p><img class="logo-tool" src="assets/grunt-logo.png" alt=""></p>
+
+                        <pre><code>module.exports = function(grunt) {
+
+  grunt.initConfig({
+    jshint: {
+      files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      options: {
+        globals: {
+          jQuery: true
+        }
+      }
+    },
+    watch: {
+      files: ['<%= jshint.files %>'],
+      tasks: ['jshint']
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  grunt.registerTask('default', ['jshint']);
+
+};</code></pre>
+
                     </section>
 
                     <section>
                         <h3>Gulp</h3>
                         <p><img class="logo-tool" src="assets/gulp.png" alt=""></p>
+
+                        <pre><code class="hljs hljs-js">
+var concat = require('gulp-concat');
+
+gulp.task('scripts', function() {
+  return gulp.src('./lib/*.js')
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('./dist/'));
+});
+                        </code></pre>
                     </section>
 
                     <section>
                         <h3>npm scripts</h3>
                         <p><img class="logo-tool" src="assets/npm.png" alt=""></p>
+
+                        <pre><code>cat 1.js 2.js > 0.js</code></pre>
                     </section>
                 </section>
 
@@ -145,7 +182,7 @@
                     </section>
 
                     <section>
-                        <p><img class="logo-tool logo-tool-lg" alt="excorzist" src="assets/exorcist.webp" ></p>
+                        <p><img class="logo-tool logo-tool-lg" alt="excorzist" src="assets/exorcist.webp"></p>
                     </section>
                 </section>
             </div>
