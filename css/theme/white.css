@@ -299,6 +299,21 @@ body {
   max-height: 400px;
   max-width: 400px; }
 
-.tool-list .tool {
-  float: left;
-  list-style-type: none; }
+.tool-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 800px;
+  transform: translate(80px, 0); }
+  .tool-list .tool {
+    list-style: none;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff; }
+    .tool-list .tool img {
+      object-fit: contain;
+      width: 100%; }
