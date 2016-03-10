@@ -334,14 +334,18 @@ body {
 .reveal .progress {
 	background: rgba(0,0,0,0.2);
 }
-	.reveal .progress span {
-		background: $linkColor;
+.reveal .progress span {
+    background: $linkColor;
 
-		-webkit-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-		   -moz-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-		        transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-	}
+    -webkit-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+       -moz-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+            transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+}
 
+
+/**********************************************
+ * CUSTOMER STYLES
+ **********************************************/
 
 .reveal img.logo-tool {
     max-height: 200px;
@@ -354,4 +358,11 @@ body {
 .reveal img.logo-tool-lg {
     max-height: 400px;
     max-width: 400px;
+}
+
+.tool-list {
+    .tool {
+        float: left;
+        list-style-type: none;
+    }
 }
