@@ -144,27 +144,15 @@
                         <h3>Grunt</h3>
                         <p><img class="logo-tool" src="assets/grunt-logo.png" alt=""></p>
 
-                        <pre><code>module.exports = function(grunt) {
+                        <pre><code class="hljs javascript">module.exports = function(grunt) {
     grunt.initConfig({
         jshint: {
-            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
-            options: {
-                globals: {
-                    jQuery: true
-                }
-            }
-        },
-        watch: {
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint']
+            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js']
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-
     grunt.registerTask('default', ['jshint']);
-
 };</code></pre>
 
                         <pre><code>grunt</code></pre>
@@ -174,7 +162,7 @@
                         <h3>Gulp</h3>
                         <p><img class="logo-tool" src="assets/gulp.png" alt=""></p>
 
-                        <pre><code class="hljs hljs-js">var concat = require('gulp-concat');
+                        <pre><code class="hljs javascript">var concat = require('gulp-concat');
 gulp.task('concat', function() {
   return gulp.src('./lib/*.js')
     .pipe(concat('all.js'))
@@ -307,6 +295,59 @@ module.exports = {
                         <blockquote>Externalizes the source map found inside a stream to an external .js.map file</blockquote>
                     </section>
 
+                </section>
+
+                <section>
+                    <section>
+                        <h2>NPM Scripts</h2>
+                    </section>
+
+                    <section>
+                        <h3>How-To</h3>
+
+                        <pre class="fragment"><code>{
+    "config": {
+        "reporter": "nyan"
+    },
+    "scripts": {
+        "build": "browserify src/index.js > dist/app.min.js",
+        "prepublish": "npm run build && npm run concat",
+
+        "hint": "jshint **.js",
+        "pretest": "npm run hint",
+
+        "concat": "cat dist/base.min.js app.min.js > browser.min.js",
+
+        "test": "mocha test --reporter $npm_package_config_reporter",
+        "prebuild": "npm run test"
+    }
+}</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Live coding example</h2>
+                        <img class="fragment" src="assets/coding.gif" alt="coding" />
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <img class="fragment" src="assets/thank-you-cat.jpg" alt="thank you" />
+                        <!--<img class="fragment" src="assets/thx_4_listening.jpg" alt="thank you" />-->
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Links</h2>
+
+                    <ul>
+                        <li>https://css-tricks.com/why-npm-scripts/</li>
+                        <li>http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/</li>
+                        <li>http://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm</li>
+                        <li>https://medium.freecodecamp.com/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8</li>
+                    </ul>
                 </section>
             </div>
         </div>
